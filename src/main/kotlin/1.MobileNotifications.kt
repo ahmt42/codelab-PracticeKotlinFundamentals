@@ -1,3 +1,5 @@
+// https://developer.android.com/codelabs/basic-android-kotlin-compose-kotlin-fundamentals-practice-problems#1
+
 fun main() {
     val morningNotification = 51
     val eveningNotification = 135
