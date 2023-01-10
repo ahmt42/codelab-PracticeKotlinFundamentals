@@ -10,8 +10,6 @@ fun main() {
 
 fun printNotificationSummary(numberOfMessages: Int) {
     val message = when {
-        numberOfMessages == 0 -> "You have no new messages."
-        numberOfMessages == 1 -> "You have 1 new message."
         numberOfMessages <= 99 -> "You have $numberOfMessages notifications."
         else -> "Your phone is blowing up! You have 99+ notifications."
     }
