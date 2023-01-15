@@ -1,4 +1,4 @@
-//
+// https://developer.android.com/codelabs/basic-android-kotlin-compose-kotlin-fundamentals-practice-problems#3
 
 /*
 There are three main temperature scales used in the world: Celsius, Fahrenheit, and Kelvin.
@@ -10,7 +10,7 @@ In the initial code provided in the following code snippet, write a program that
     Fahrenheit to Kelvin: K = 5/9 (° F - 32) + 273.15
 
 Note that the String.format("%.2f", /* measurement */ ) method is used to convert a number into a String type with 2 decimal places.
- */
+*/
 
 /*
 Complete the main() function so that it calls the printFinalTemperature() function and prints the following lines.
@@ -20,11 +20,30 @@ Hint: you may want to use Double values to avoid Integer truncation during divis
 27.0 degrees Celsius is 80.60 degrees Fahrenheit.
 350.0 degrees Kelvin is 76.85 degrees Celsius.
 10.0 degrees Fahrenheit is 260.93 degrees Kelvin.
-
- */
+*/
 
 fun main() {
-    // Fill in the code.
+    val initialMeasurement = readLine()!!.toDouble() // read the initial measurement from the user and convert it to a Double
+    val initialUnit = readLine()!! // read the initial unit from the user
+    val finalUnit = readLine()!! // read the final unit from the user
+
+    when (initialUnit) {
+        "Celsius" ->
+            when (finalUnit) {
+                "Fahrenheit" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { celsius: Double -> (celsius * 9/5) + 32 })
+                "Kelvin" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { celsius: Double -> (celsius + 273.15) })
+            }
+        "Fahrenheit" ->
+            when (finalUnit) {
+                "Celsius" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { fahrenheit: Double -> (fahrenheit - 32) * 5/9 })
+                "Kelvin" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { fahrenheit: Double -> (fahrenheit - 32) * 5/9 + 273.15 })
+            }
+        "Kelvin" ->
+            when (finalUnit) {
+                "Celsius" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { kelvin: Double -> kelvin - 273.15 })
+                "Fahrenheit" -> return printFinalTemperature(initialMeasurement, initialUnit, finalUnit, { kelvin: Double -> (kelvin - 273.15) * 9/5 + 32 })
+            }
+    }
 }
 
 
