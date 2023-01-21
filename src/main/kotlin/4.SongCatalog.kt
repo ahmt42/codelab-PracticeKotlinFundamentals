@@ -11,3 +11,20 @@ Create a class that can represent the structure of a song. The Song class must i
 
 "[Title], performed by [artist], was released in [year published]."
  */
+
+
+class Song {
+    lateinit var title: String
+    lateinit var artist: String
+    var yearPublished: Int = 0
+    var playCount: Int = 0
+    var isPopular: Boolean
+
+    init {
+        this.isPopular = (playCount >= 1000)
+    }
+
+    fun songDescription() {
+        println("$title, performed by $artist, was released in $yearPublished.")
+    }
+}
