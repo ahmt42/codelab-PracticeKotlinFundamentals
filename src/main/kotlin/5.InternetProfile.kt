@@ -28,6 +28,27 @@ fun main() {
 
 class Person(val name: String, val age: Int, val hobby: String?, val referrer: Person?) {
     fun showProfile() {
-        // Fill in code
+        println("Name: $name")
+        println("Age: $age")
+
+        if (hobby != null) {
+            print("Likes to $hobby. ")
+        } else {
+            print("Has no hobbies.")
+        }
+
+        if (referrer != null) {
+            print("Has a referrer named  ${referrer.name}, ")
+            if (referrer.hobby != null) {
+                print("who likes to ${referrer.hobby}. ")
+            } else {
+                print("has no hobbies.")
+            }
+        } else {
+            print("Doesn't have a referrer.")
+        }
+
+        println()
+        println()
     }
 }
